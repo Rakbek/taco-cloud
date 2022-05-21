@@ -7,5 +7,5 @@ import lombok.Data;
 public class Taco {
     
     private String name;
-    private List<Ingredient> Ingredients;
+    private List<Ingredient> ingredients;
 }
