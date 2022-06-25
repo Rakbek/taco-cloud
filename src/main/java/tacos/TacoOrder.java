@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
@@ -27,6 +28,9 @@ public class TacoOrder {
     private Long id;
 
     private Date placedAt;
+
+    @ManyToOne
+    private User user;
     
     @NotBlank(message = "Delivery name is required")
     private String deliveryName;
