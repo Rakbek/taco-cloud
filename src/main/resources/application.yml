@@ -10,6 +10,9 @@ spring:
               clientId: 3215451234
               clientSecret: 123551432
               scope: email, public_profle
+  data:
+    rest:
+      base-path: /data-api
 
 logging:
   level:

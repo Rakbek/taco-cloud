@@ -15,10 +15,13 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.data.rest.core.annotation.RestResource;
+
 import lombok.Data;
 
 @Data
 @Entity
+@RestResource(rel = "orders", path = "orders")
 public class TacoOrder {
 
     @Id
