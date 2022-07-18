@@ -10,6 +10,9 @@ spring:
               clientId: 3215451234
               clientSecret: 123551432
               scope: email, public_profle
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
   data:
     rest:
       base-path: /data-api
