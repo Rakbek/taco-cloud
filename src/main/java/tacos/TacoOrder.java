@@ -1,5 +1,6 @@
 package tacos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +23,7 @@ import lombok.Data;
 @Data
 @Entity
 @RestResource(rel = "orders", path = "orders")
-public class TacoOrder {
+public class TacoOrder implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tacos.TacoOrder;
 import tacos.data.OrderRepository;
+import tacos.messaging.OrderMessagingService;
 
 @RestController
 @RequestMapping(path = "api/orders", produces = "application/json")
@@ -23,9 +24,11 @@ import tacos.data.OrderRepository;
 public class OrderApiController {
     
     private OrderRepository orderRepo;
+    private OrderMessagingService messagingService;
 
-    public OrderApiController(OrderRepository orderRepo) {
+    public OrderApiController(OrderRepository orderRepo, OrderMessagingService messagingService) {
         this.orderRepo = orderRepo;
+        this.messagingService = messagingService;
     }
 
     @GetMapping(produces = "application/json")
@@ -36,6 +39,7 @@ public class OrderApiController {
     @PostMapping(consumes="application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public TacoOrder postOrder(@RequestBody TacoOrder order) {
+        messagingService.sendOrder(order);
         return orderRepo.save(order);
     }
 

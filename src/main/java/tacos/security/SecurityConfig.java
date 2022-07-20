@@ -57,7 +57,7 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/")
                 .and()
                 .csrf()
-                .ignoringAntMatchers("/h2-console/**")
+                .ignoringAntMatchers("/h2-console/**","/api/**")
                 .and()
                 .headers()
                 .frameOptions()
