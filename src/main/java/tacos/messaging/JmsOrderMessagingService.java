@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import tacos.TacoOrder;
 
-@Service
 public class JmsOrderMessagingService implements OrderMessagingService {
 
   private JmsTemplate jms;

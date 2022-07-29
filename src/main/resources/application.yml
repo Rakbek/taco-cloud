@@ -19,6 +19,9 @@ spring:
   jms:
     template:
       default-destination: tacocloud.order.queue
+  rabbitmq:
+    addresses: localhost
+    port: 5672
 
 logging:
   level:
