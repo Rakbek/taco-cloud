@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.jms.Destination;
 
 import org.apache.activemq.artemis.jms.client.ActiveMQQueue;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
@@ -26,6 +27,11 @@ public class MessagingConfig {
     messageConverter.setTypeIdMappings(typeIdMappings);
 
     return messageConverter;
+  }
+
+  @Bean
+  public Jackson2JsonMessageConverter messageConverterAmqp() {
+    return new Jackson2JsonMessageConverter();
   }
 
   @Bean
